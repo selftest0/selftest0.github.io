@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
+import './styles.scss';
 
 export default class UserItem extends Component {
   static propTypes = {

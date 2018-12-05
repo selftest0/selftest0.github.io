@@ -12,7 +12,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import './styles.scss';
 
 const Backdrop = props => <div {...props} className={[ 'modal-base__backdrop', props.className ]} />;
 const Container = props => <div {...props} className={[ 'modal-base__container', props.className ]} />;

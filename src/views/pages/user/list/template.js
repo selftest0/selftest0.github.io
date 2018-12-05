@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // import { Input, Modal, Footer, Image, List } from 'src/views/_blocks';
-import './styles.css';
+import './styles.scss';
 
 
 export default class UserList extends React.Component {
