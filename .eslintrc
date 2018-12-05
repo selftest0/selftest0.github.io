@@ -48,7 +48,8 @@
       "aspects": [ "noHref", "invalidHref", "preferButton" ]
     }],
     "react/require-default-props": "off",
-    "react/button-has-type": "off"
+    "react/button-has-type": "off",
+    "react/destructuring-assignment": "off",
   },
   "settings": {
     "import/resolver": {

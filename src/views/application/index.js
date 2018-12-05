@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Pages from 'src/views/pages';
 import Header from 'src/views/application/header';
-import './index.css';
+import './index.scss';
 
 
 export default class Application extends React.Component {
