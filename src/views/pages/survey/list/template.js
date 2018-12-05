@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
+import { Link } from 'react-router-dom';
+import { Row } from 'src/views/_blocks/index';
+import './styles.scss';
 
 
 export default class SurveyList extends React.Component {
@@ -24,9 +26,15 @@ export default class SurveyList extends React.Component {
         const { list } = this.props;
 
         return (
-            <div className="survey-list">
-                <pre>{JSON.stringify(list, null, 4)}</pre>
-            </div>
+            <Row id="survey-list-page">
+                {
+                    list.map(i => (
+                        <Link className="survey-list__card" to={`/survey/item/${i.id}`}>
+                            {i.title}
+                        </Link>
+                    ))
+                }
+            </Row>
         );
     }
 }

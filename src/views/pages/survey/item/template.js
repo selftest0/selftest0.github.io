@@ -215,7 +215,6 @@ export default class SurveyItem extends Component {
         const { results, verdict } = this.state;
         return (
             <Row id="survey-item-page">
-                {/*<pre>{JSON.stringify(this.props.item, null, 4)}</pre>*/}
                 <div className="survey-item__title">{item.title}</div>
                 <div className="survey-item__description">
                     <ol>
