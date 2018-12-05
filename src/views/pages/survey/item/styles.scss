@@ -28,5 +28,13 @@
       font: 300 30px/32px Roboto, Arial, Helvetica, sans-serif;
       color: #333;
     }
+    &__send {
+      text-align: center;
+      padding-bottom: 30px;
+      button {
+        width: inherit;
+        padding: 5px 20px;
+      }
+    }
   }
 }

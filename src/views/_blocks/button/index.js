@@ -17,13 +17,14 @@ export default class Button extends React.Component {
     };
 
     render() {
-        const { className, type, children, disabled, ...props } = this.props;
+        const { className, type, children, disabled, onClick, ...props } = this.props;
         const color = [ 'green', 'blue', 'red', 'orange', 'silver' ].find(i => !!props[i]);
         return (
             <button
                 type={type}
                 className={[ 'button', className, disabled && 'disabled', color ]}
                 disabled={disabled}
+                onClick={onClick}
             >
                 {children}
             </button>

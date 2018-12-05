@@ -43,24 +43,14 @@ export default class Modal extends Component {
         open: false,
     };
 
-    state = {
-        open: this.props.open,
-    };
-
     open = () => this.toggle(true, this.props.onOpen);
 
     close = () => this.toggle(false, this.props.onClose);
 
-    toggle = (open, event) => {
-        this.setState({ open });
-        if (typeof event === 'function') event();
-    };
+    toggle = (open, callback) => typeof callback === 'function' && callback();
 
     render() {
-        const { className, children, ...props } = this.props;
-        delete props.open;
-
-        const { open } = this.state;
+        const { className, children, open, ...props } = this.props;
 
         return (
             <div className={[ 'modal-base', className, open && 'open' ]}>

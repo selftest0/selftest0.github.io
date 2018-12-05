@@ -50,6 +50,7 @@
     "react/require-default-props": "off",
     "react/button-has-type": "off",
     "react/destructuring-assignment": "off",
+    "react/jsx-one-expression-per-line": "off"
   },
   "settings": {
     "import/resolver": {
