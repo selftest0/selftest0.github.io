@@ -10,12 +10,22 @@ export default class SingIn extends Component {
         status: PropTypes.oneOf([ 'request', 'success', 'failure' ]),
     };
 
+    componentDidMount() {
+        fetch('https://generator-app.herokuapp.com/articles').then(
+            response => response.json()
+        ).then((json) => {
+            console.log(json);
+        });
+    }
+
     handleSignIn = (event) => {
         event.preventDefault();
         const { email, password } = this.state;
         this.props.onSignIn({ email, password }).then(({ error }) => !error && this.props.history.replace('/user/me'));
     };
+
     handleChange = ({ value, name }) => this.setState({ [name]: value });
+
     render() {
         const { status } = this.props;
         return (
