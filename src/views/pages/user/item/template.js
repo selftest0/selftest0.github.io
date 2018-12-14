@@ -17,6 +17,6 @@ export default class UserItem extends Component {
       this.props.fetchItem(id);
   }
   render() {
-      return <pre>{JSON.stringify(this.props.item, null, 4)}</pre>;
+      return (<pre>{JSON.stringify(this.props.item, null, 4)}</pre>);
   }
 }
