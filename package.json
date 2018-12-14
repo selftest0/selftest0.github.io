@@ -2,7 +2,7 @@
   "name": "generator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://walborn.github.io/selftest",
+  "homepage": "http://selftest.pro",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "history": "^4.7.2",
@@ -15,15 +15,15 @@
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.1",
     "redux": "^4.0.1",
     "redux-api-middleware": "^3.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
