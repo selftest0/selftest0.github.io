@@ -1,0 +1,10 @@
+@import 'src/assets/styles/constants.scss';
+
+.menu-item {
+  display: inline-block;
+  padding: 20px;
+  color: $color-gray;
+  &--active {
+    color: $color-gray--darken;
+  }
+}
