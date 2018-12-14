@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, CheckBoxList, Row, Modal } from 'src/views/_blocks/index';
 import surveys from 'src/views/pages/survey/data/list';
-
 import './styles.scss';
+
 
 export default class SurveyItem extends Component {
     static propTypes = {
@@ -39,35 +39,16 @@ export default class SurveyItem extends Component {
         return (
             <Row id="survey-item-page">
                 <div className="survey-item__title">{survey.title}</div>
-                <div className="survey-item__description">
-                    <ol>
-                        <li>Эректильная функция <span>(вопросы 1, 2, 3, 4, 5, 15).</span></li>
-                        <li>Функция оргазма <span>(вопросы 9, 10).</span></li>
-                        <li>Сексуальное желание <span>(вопросы 11,12).</span></li>
-                        <li>Удовлетворение половым актом <span>(вопросы 6, 7, 8).</span></li>
-                        <li>Общая сексуальная удовлетворенность <span>(вопросы 13, 14).</span></li>
-                    </ol>
-                    Опросник МИЭФ содержит вопросы о том, как нарушения эрекции сказывались на сексуальной жизни в течение последних четырех недель.
-                    Пожалуйста, ответьте на эти вопросы как можно более откровенно и определенно.
-                    Если Вы не уверены в выборе ответа, пожалуйста, дайте тот ответ, который лучше всего отражает Вашу ситуацию.
-
-                    Отвечая на эти вопросы, придерживайтесь следующих определений:
-                    <ul>
-                        <li>Половой акт определяется как введение полового члена во влагалище.</li>
-                        <li>Сексуальные действия включают в себя половой акт, ласки, предшествующие половому акту, и мастурбацию.</li>
-                        <li>Эякуляция определяется как выброс спермы из полового члена (или таковое ощущение).</li>
-                        <li>Сексуальная стимуляция включает в себя такие действия, как эротические игры с сексуальной партнершей, просмотр эротических фильмов, фотографий, рисунков и т.д.</li>
-                    </ul>
-                </div>
+                <div className="survey-item__description">{survey.description}</div>
                 {
                     survey.list.map((card, index) => (
-                        <div className="survey-item__card">
+                        <div key={card.question} className="survey-item__card">
                             <div className="survey-item__question">{card.question}</div>
                             <CheckBoxList
                                 className="survey-item__assumptions"
                                 type={card.type}
                                 list={card.assumptions.map((i, index) => ({
-                                    key: index,
+                                    key: `${index}`,
                                     value: false,
                                     children: i,
                                 }))}

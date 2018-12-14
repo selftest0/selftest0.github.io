@@ -21,12 +21,12 @@ export default class Header extends React.Component {
                 {
                     me.id
                         ? [
-                            <li><Link to="/survey/list">Surveys</Link></li>,
-                            <li><Link to="/user/list">Users</Link></li>,
-                            <li><Link to="/user/me">Profile</Link></li>,
-                            <li><Link to="/auth/signin" onClick={signOut}>Sign Out</Link></li>,
+                            <li key="surveys"><Link to="/survey/list">Surveys</Link></li>,
+                            <li key="users"><Link to="/user/list">Users</Link></li>,
+                            <li key="profile"><Link to="/user/me">Profile</Link></li>,
+                            <li key="signout"><Link to="/auth/signin" onClick={signOut}>Sign Out</Link></li>,
                         ]
-                        : <li><Link to="/auth/signin">Sign In</Link></li>
+                        : <li key="signin"><Link to="/auth/signin">Sign In</Link></li>
                 }
             </ul>
         );

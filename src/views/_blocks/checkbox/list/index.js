@@ -47,7 +47,7 @@ export default class CheckBoxList extends Component {
 
         let newList = [ ...list ];
         let newItem = {};
-        console.log(type, index, list[index].value);
+
         if (type === 'check') {
             newItem = { ...list[index], value: !list[index].value };
             newList = [ ...list.slice(0, index), newItem, ...list.slice(index + 1) ];
@@ -64,20 +64,21 @@ export default class CheckBoxList extends Component {
         const { className, type, readonly } = this.props;
         const { list } = this.state;
         return (
-            <div className={[ 'checkbox-list', className ]}>
+            <ul className={[ 'checkbox-list', className ]}>
                 {
                     list.map(item => (
-                        <CheckBoxItem
-                            type={type}
-                            key={item.key}
-                            readonly={readonly}
-                            value={item.value}
-                            onClick={this.handleChange(item.key)}
-                        >
-                            {item.children}
-                        </CheckBoxItem>
+                        <li key={item.key}>
+                            <CheckBoxItem
+                                type={type}
+                                readonly={readonly}
+                                value={item.value}
+                                onClick={this.handleChange(item.key)}
+                            >
+                                {item.children}
+                            </CheckBoxItem>
+                        </li>
                     ))}
-            </div>
+            </ul>
         );
     }
 }
