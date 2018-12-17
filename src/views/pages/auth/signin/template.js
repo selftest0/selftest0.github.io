@@ -1,6 +1,6 @@
 import React  from 'react';
 import PropTypes from 'prop-types';
-import { Input, Button } from 'src/views/_blocks/index';
+import { Input, Button, Loader } from 'src/views/_blocks/index';
 import './styles.scss';
 
 export default class SingIn extends React.Component {
@@ -31,6 +31,7 @@ export default class SingIn extends React.Component {
         const { status, password, email } = this.state;
         return (
             <div className="page-signin">
+                <Loader hidden={status !== 'request'}/>
                 <form onSubmit={this.handleSignIn}>
                     <Input type="text" name="email" title="E-mail" placeholder="E-mail" onChange={this.handleChange} />
                     <Input type="password" name="password" title="Пароль" placeholder="Пароль" onChange={this.handleChange} />
