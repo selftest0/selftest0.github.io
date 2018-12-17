@@ -3,7 +3,10 @@ import { withRouter } from 'react-router-dom';
 import * as actions from 'src/actions/auth';
 import Template from './template';
 
-const mapStateToProps = ({ user }) => ({ status: user.getIn([ 'status', 'signIn' ]) });
+const mapStateToProps = ({ auth }) => ({
+    status: auth.getIn([ 'status', 'signIn' ]),
+});
+
 const mapDispatchToProps = dispatch => ({
     onSignIn: ({ email, password }) => dispatch(actions.signIn({ email, password })),
 });

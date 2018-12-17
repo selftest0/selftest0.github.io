@@ -5,6 +5,7 @@ import Template from './template';
 
 const mapStateToProps = ({ auth }) => ({
     me: auth.get('me').toJS(),
+    meStatus: auth.getIn([ 'status', 'me' ])
 });
 
 const mapDispatchToProps = dispatch => ({

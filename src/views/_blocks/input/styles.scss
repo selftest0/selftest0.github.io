@@ -42,7 +42,7 @@
       outline: none;
     }
     &::placeholder {
-      color: lighten($color-gray, 40)
+      color: $color-gray--light
     }
   }
   &.with-title > input {
