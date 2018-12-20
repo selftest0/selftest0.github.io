@@ -5,7 +5,7 @@
     &__card {
       display: inline-block;
       padding: 20px;
-      margin-bottom: 20px;
+      margin: 0 20px 20px 0;
       border: 1px solid $color-gray--lighten;
       border-radius: 6px;
       text-decoration: none;
@@ -25,6 +25,10 @@
       width: 64px;
       height: 64px;
       fill: $color-gray--lighten;
+    }
+    &__title {
+      height: 100px;
+      overflow: hidden;
     }
   }
 }
