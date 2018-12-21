@@ -3,7 +3,7 @@ import React from 'react';
 export default [
     {
         id: '5c0545c67f31170016165879',
-        title: 'Опросник МИЭФ (IIEF). Библиотека пациента. Урология',
+        title: 'Опросник МИЭФ (IIEF)',
         formula: index => index / 2,
         test: (value) => {
             if (value < 11) return 'тяжелая степень эректильной дисфункции';

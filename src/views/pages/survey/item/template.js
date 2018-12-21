@@ -30,12 +30,13 @@ export default class SurveyItem extends Component {
 
     handleSubmit = () => {
         const { survey, results } = this.state;
-        const verdict = survey.test(results.reduce((res, i) => res + i, 0));
-        this.setState({ verdict });
+        const score = results.reduce((res, i) => res + i, 0);
+        const verdict = survey.test(score);
+        this.setState({ score, verdict });
     };
 
     render() {
-        const { survey, disabled, verdict } = this.state;
+        const { survey, disabled, score, verdict } = this.state;
         return (
             <Row id="survey-item-page">
                 <div className="survey-item__title">{survey.title}</div>
@@ -59,10 +60,10 @@ export default class SurveyItem extends Component {
                     ))
                 }
                 <div className="survey-item__send">
-                    <Button type="submit" name="submit" blue onClick={this.handleSubmit} disabled={disabled}>Отправить</Button>
+                    <Button type="submit" name="submit" blue onClick={this.handleSubmit} disabled={disabled}>Результат</Button>
                 </div>
                 <Modal open={!!verdict} onClose={() => this.setState({ verdict: undefined })}>
-                    <Modal.Header>Результат теста</Modal.Header>
+                    <Modal.Header>Ваш результат {score} баллов</Modal.Header>
                     <Modal.Body>{verdict}</Modal.Body>
                 </Modal>
             </Row>
