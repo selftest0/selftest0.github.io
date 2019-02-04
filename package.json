@@ -2,7 +2,7 @@
   "name": "generator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://walborn.github.io",
+  "homepage": "http://selftest.io",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "history": "^4.7.2",
