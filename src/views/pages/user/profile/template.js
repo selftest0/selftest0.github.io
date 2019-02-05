@@ -21,7 +21,7 @@ export default class Profile extends React.Component {
       return (
           <div className="survey-profile">
               {/*<pre>{JSON.stringify(me, null, 4)}</pre>*/}
-              <img className="survey-profile__picture" src={me.picture} />
+              <img className="survey-profile__picture" src={me.picture} alt="" />
               <Input className="survey-profile__name" value={me.name} readOnly />
               <Input className="survey-profile__email" value={me.email} readOnly />
           </div>
