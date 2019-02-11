@@ -36,7 +36,7 @@ export default class Header extends React.Component {
                 <ul className="header">
                     <li key="surveys" className="header__item"><MenuItem to="/survey/list" active={active === 'survey/list'}>Опросы</MenuItem></li>
                     { me.id && <li key="users" className="header__item"><MenuItem to="/user/list" active={active === 'user/list'}>Пользователи</MenuItem></li>}
-                    { me.id && <li key="profile" className="header__item"><MenuItem to="/user/me" active={active === 'user/me'}>Профиль</MenuItem></li>}
+                    { me.id && <li key="profile" className="header__item header__item--user"><MenuItem to="/user/me" active={active === 'user/me'}>Профиль</MenuItem></li>}
                     { me.id && <li key="signout" className="header__item header__item--auth"><MenuItem to="/auth/signin" onClick={signOut}>Выход</MenuItem></li>}
                     { !me.id && <li key="signin" className="header__item header__item--auth"><MenuItem to="/auth/signin" active={active === 'auth/signin'}>Войти</MenuItem></li>}
                 </ul>

@@ -9,13 +9,16 @@
       border: 1px solid $color-gray--lighten;
       border-radius: 6px;
       text-decoration: none;
-      color: $color-gray--light;
-      max-width: 200px;
+      color: $color-font--light;
+      width: 150px;
       &:hover {
-        color: $color-gray;
+        color: $color-font;
         box-shadow: inset 0 1px 1px $color-gray--lighten, 0 0 8px $color-gray--lighten;
+        .survey-list__title {
+          color: $color-font;
+        }
         .survey-list__icon {
-          fill: $color-gray--light;
+          fill: $color-font;
         }
       }
     }
@@ -24,11 +27,27 @@
       margin: 16px auto;
       width: 64px;
       height: 64px;
-      fill: $color-gray--lighten;
+      fill: $color-font--light;
     }
     &__title {
-      height: 100px;
+      height: 70px;
+      text-align: center;
       overflow: hidden;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 480px) {
+  #survey-list-page {
+    .survey-list {
+      &__card {
+        display: block;
+        margin: 20px 0;
+        box-sizing: border-box;
+        max-width: none;
+        width: 100%;
+      }
     }
   }
 }

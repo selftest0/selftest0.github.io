@@ -3,7 +3,7 @@ import React from 'react';
 export default [
     {
         id: '5c0545c67f31170016165879',
-        title: 'Опросник МИЭФ (IIEF)',
+        title: <div>Опросник МИЭФ<br />(IIEF)</div>,
         formula: index => index / 2,
         test: (value) => {
             if (value < 11) return 'тяжелая степень эректильной дисфункции';
@@ -202,7 +202,7 @@ export default [
     },
     {
         id: '2j05d45c67fd170016235879',
-        title: 'Опросник IPSS. Урология',
+        title: 'Опросник IPSS',
         formula: index => index,
         test: (value) => {
             if (value < 8) return 'Легкая симптоматика, однако, желательно обратиться к специалисту – урологу, особенно, при наличии жалоб';
