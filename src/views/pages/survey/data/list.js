@@ -202,7 +202,7 @@ export default [
     },
     {
         id: '2j05d45c67fd170016235879',
-        title: 'Опросник IPSS',
+        title: <div>Опросник IPSS.<br />Урология</div>,
         formula: index => index,
         test: (value) => {
             if (value < 8) return 'Легкая симптоматика, однако, желательно обратиться к специалисту – урологу, особенно, при наличии жалоб';
