@@ -30,9 +30,15 @@
       fill: $color-font--light;
     }
     &__title {
-      height: 70px;
+      //height: 70px;
       text-align: center;
-      overflow: hidden;
+      //overflow: hidden;
+    }
+    &__description {
+      text-align: center;
+      color: $color-gray--light;
+      font-size: 12px;
+      line-height: 17px;
     }
   }
 }

@@ -31,7 +31,9 @@ export default class SurveyList extends React.Component {
                     surveys.map(i => (
                         <Link className="survey-list__card" to={`/survey/item/${i.id}`}>
                             <SurveySVG className="survey-list__icon" />
-                            <div className="survey-list__title">{i.title}</div>
+                            {!i.card && <div className="survey-list__title">{i.title}</div>}
+                            {i.card && <div className="survey-list__title">{i.card.title}</div>}
+                            {i.card && <div className="survey-list__description">{i.card.description}</div>}
                         </Link>
                     ))
                 }

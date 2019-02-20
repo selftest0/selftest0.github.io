@@ -21,18 +21,18 @@ export default class SurveyItem extends Component {
         disabled: true,
     };
 
-    handleChange = index => (value) => {
+    handleChange = index => (value, a, b) => {
         const { survey, results } = this.state;
-        results[index] = survey.formula(value.findIndex(i => i.value));
-        const disabled = results.filter(i => typeof i === 'number').length !== survey.list.length;
+        const list = survey.list[index].list;
+        results[index] = value.reduce((res, i) => [ ...res, i.value * list[i.key].value ], []);
+        const disabled = survey.list.some((i, index) => i.type === 'radio' && !Array.isArray(results[index]));
         this.setState({ results, disabled });
     };
 
     handleSubmit = () => {
         const { survey, results } = this.state;
-        const score = results.reduce((res, i) => res + i, 0);
-        const verdict = survey.test(score);
-        this.setState({ score, verdict });
+        const [ verdict, score ] = survey.formula(results);
+        this.setState({ verdict, score });
     };
 
     render() {
@@ -48,10 +48,10 @@ export default class SurveyItem extends Component {
                             <CheckBoxList
                                 className="survey-item__assumptions"
                                 type={card.type}
-                                list={card.assumptions.map((i, index) => ({
-                                    key: `${index}`,
+                                list={card.list.map((i, ix) => ({
+                                    key: `${ix}`,
                                     value: false,
-                                    children: i,
+                                    children: i.text,
                                 }))}
                                 onChange={this.handleChange(index)}
                             />
@@ -63,7 +63,7 @@ export default class SurveyItem extends Component {
                     <Button type="submit" name="submit" blue onClick={this.handleSubmit} disabled={disabled}>Результат</Button>
                 </div>
                 <Modal open={!!verdict} onClose={() => this.setState({ verdict: undefined })}>
-                    <Modal.Header>Ваш результат {score} баллов</Modal.Header>
+                    <Modal.Header>Результат</Modal.Header>
                     <Modal.Body>{verdict}</Modal.Body>
                 </Modal>
             </Row>
