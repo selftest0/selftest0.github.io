@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
+
 export default class UserItem extends Component {
   static propTypes = {
       fetchItem: PropTypes.func.isRequired,
@@ -17,6 +18,15 @@ export default class UserItem extends Component {
       this.props.fetchItem(id);
   }
   render() {
-      return (<pre>{JSON.stringify(this.props.item, null, 4)}</pre>);
+      const { item } = this.props;
+      return (
+          <div id="user-page">
+              <div className="user">
+                  <img className="user__picture" src={item.picture} alt="" />
+                  <div className="user__name">{item.name}</div>
+                  {/*<pre>{JSON.stringify(this.props.item, null, 4)}</pre>*/}
+              </div>
+          </div>
+      );
   }
 }

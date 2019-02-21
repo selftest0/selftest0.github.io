@@ -29,7 +29,9 @@ export default class UserList extends React.Component {
                     list.map(item => (
                         <li key={item.id} className="user-list__item">
                             <Link to={`/user/item/${item.id}`}>
-                                <pre>{JSON.stringify(item, null, 4)}</pre>
+                                {/*<pre>{JSON.stringify(item, null, 4)}</pre>*/}
+                                <img className="user-list__picture" src={item.picture} alt="" />
+                                <div className="user-list__name">{item.name}</div>
                             </Link>
                         </li>
                     ))
