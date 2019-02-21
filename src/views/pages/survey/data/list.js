@@ -2,7 +2,7 @@ import React from 'react';
 
 export default [
     {
-        id: '5c0545c67f31170016165879',
+        id: 'iief',
         title: <div>Международный индекс эректальной функции<br />(IIEF)</div>,
         card: {
             title: <div>МИЭФ</div>,
@@ -15,9 +15,40 @@ export default [
                 if (x < 26) return 'легкая степень эректильной дисфункции';
                 return 'нет эректильной дисфункции';
             };
-            const sum = result.reduce((res, i) => res + i.reduce((res, i) => res + i, 0), 0);
+            const erection = [ ...result.slice(0, 5), result[14]].reduce((res, i) => [ ...res, ...i ]).reduce((res, i) => res + i, 0);
+            const organism = result.slice(8,10).reduce((res, i) => [ ...res, ...i ]).reduce((res, i) => res + i, 0);
+            const wish = result.slice(10, 12).reduce((res, i) => [ ...res, ...i ]).reduce((res, i) => res + i, 0);
+            const satisfaction = result.slice(5, 8).reduce((res, i) => [ ...res, ...i ]).reduce((res, i) => res + i, 0);
+            const general = result.slice(12, 14).reduce((res, i) => [ ...res, ...i ]).reduce((res, i) => res + i, 0);
 
-            return [ <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b><br />{test(sum)}</p>, sum ]
+            const sum = erection + organism + wish + satisfaction + general;
+            return [ <div>
+                <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+                    <tbody>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Эректильная функция</td>
+                            <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{erection}</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Функция оргазма</td>
+                            <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{organism}</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Сексуальное желание</td>
+                            <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{wish}</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Удовлетворение половым актом</td>
+                            <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{satisfaction}</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Общая сексуальная удовлетворенность</td>
+                            <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{general}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b> - {test(sum)}</p>
+            </div>, sum]
         },
         description: (
             <div style={{ fontStyle: 'italic' }}>
