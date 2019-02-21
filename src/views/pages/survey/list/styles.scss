@@ -4,6 +4,7 @@
   .survey-list {
     &__card {
       display: inline-block;
+      vertical-align:top;
       padding: 20px;
       margin: 0 20px 20px 0;
       border: 1px solid $color-gray--lighten;
@@ -11,6 +12,7 @@
       text-decoration: none;
       color: $color-font--light;
       width: 150px;
+      height: 200px;
       &:hover {
         color: $color-font;
         box-shadow: inset 0 1px 1px $color-gray--lighten, 0 0 8px $color-gray--lighten;
@@ -53,6 +55,7 @@
         box-sizing: border-box;
         max-width: none;
         width: 100%;
+        height: initial;
       }
     }
   }
