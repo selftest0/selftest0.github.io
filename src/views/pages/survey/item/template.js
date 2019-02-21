@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
 import { Button, CheckBoxList, Row, Modal } from 'src/views/_blocks/index';
 import surveys from 'src/views/pages/survey/data/list';
 import './styles.scss';
 
 
-export default class SurveyItem extends Component {
+export default class SurveyItem extends React.PureComponent {
     static propTypes = {
         item: PropTypes.shape({
             title: PropTypes.string,
@@ -21,22 +21,34 @@ export default class SurveyItem extends Component {
         disabled: true,
     };
 
-    handleChange = index => (value, a, b) => {
+    $list = {};
+
+    handleChange = index => (value) => {
         const { survey, results } = this.state;
         const list = survey.list[index].list;
-        results[index] = value.reduce((res, i) => [ ...res, i.value * list[i.key].value ], []);
-        const disabled = survey.list.some((i, index) => i.type === 'radio' && !Array.isArray(results[index]));
+        results[index] = value.reduce((res, i) => [ ...res, { selected: i.value, value: list[i.key].value } ], []);
+        const disabled = survey.list.some((i, ix) => i.type === 'radio' && !(Array.isArray(results[ix]) && results[ix].some(i => i.selected)));
         this.setState({ results, disabled });
     };
 
     handleSubmit = () => {
         const { survey, results } = this.state;
-        const [ verdict, score ] = survey.formula(results);
-        this.setState({ verdict, score });
+        const [ verdict ] = survey.formula(results.map(a => a.reduce((res, i) => [ ...res, i.value * i.selected ], [])));
+        this.setState({ verdict, disabled: true });
+    };
+
+    handleModalClose = () => {
+        this.setState({ verdict: undefined, results: [] }, () =>
+            this.state.survey.list.forEach((card, index) => this.$list[index].value = card.list.map((i, ix) => ({
+                key: `${ix}`,
+                value: false,
+                children: i.text,
+            })))
+        );
     };
 
     render() {
-        const { survey, disabled, score, verdict } = this.state;
+        const { survey, disabled, verdict } = this.state;
         return (
             <Row id="survey-item-page">
                 <div className="survey-item__title">{survey.title}</div>
@@ -46,6 +58,7 @@ export default class SurveyItem extends Component {
                         <div key={card.question} className="survey-item__card">
                             <div className="survey-item__question">{card.question}</div>
                             <CheckBoxList
+                                ref={r => this.$list[index] = r}
                                 className="survey-item__assumptions"
                                 type={card.type}
                                 list={card.list.map((i, ix) => ({
@@ -62,8 +75,7 @@ export default class SurveyItem extends Component {
                 <div className="survey-item__send">
                     <Button type="submit" name="submit" blue onClick={this.handleSubmit} disabled={disabled}>Результат</Button>
                 </div>
-                <Modal open={!!verdict} onClose={() => this.setState({ verdict: undefined })}>
-                    <Modal.Header>Результат</Modal.Header>
+                <Modal open={!!verdict} onClose={this.handleModalClose}>
                     <Modal.Body>{verdict}</Modal.Body>
                 </Modal>
             </Row>

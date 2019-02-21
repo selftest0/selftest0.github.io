@@ -23,6 +23,7 @@ export default [
 
             const sum = erection + organism + wish + satisfaction + general;
             return [ <div>
+                <div style={{ marginBottom: '16px', padding: '10px 30px', fontSize: '22px', textAlign: 'center', color: '#95a3b4' }}>Результат</div>
                 <table style={{ borderCollapse: 'collapse', width: '100%' }}>
                     <tbody>
                         <tr>
@@ -255,7 +256,11 @@ export default [
             };
             const sum = result.reduce((res, i) => res + i.reduce((res, i) => res + i, 0), 0);
 
-            return [ <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b><br />{test(sum)}</p>, sum ]
+            return [
+                <div>
+                    <div style={{ marginBottom: '16px', padding: '10px 30px', fontSize: '22px', textAlign: 'center', color: '#95a3b4' }}>Результат</div>
+                    <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b><br />{test(sum)}</p>
+                </div>, sum ]
         },
         description: (
             <div style={{fontStyle: 'italic'}}>
@@ -360,7 +365,11 @@ export default [
             };
             const sum = result.reduce((res, i) => res + i.reduce((res, i) => res + i, 0), 0);
 
-            return [ <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b><br />{test(sum)}</p>, sum ]
+            return [
+                <div>
+                    <div style={{ marginBottom: '16px', padding: '10px 30px', fontSize: '22px', textAlign: 'center', color: '#95a3b4' }}>Результат</div>
+                    <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b><br />{test(sum)}</p>
+                </div>, sum ]
         },
         description: (
             <div style={{fontStyle: 'italic'}}>
@@ -558,7 +567,11 @@ export default [
             };
             const sum = result.reduce((res, i) => res + i.reduce((res, i) => res + i, 0), 0);
 
-            return [ <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b><br />{test(sum)}</p>, sum ]
+            return [
+                <div>
+                    <div style={{ marginBottom: '16px', padding: '10px 30px', fontSize: '22px', textAlign: 'center', color: '#95a3b4' }}>Результат</div>
+                    <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b><br />{test(sum)}</p>
+                </div>, sum ]
         },
         description: (
             <div style={{fontStyle: 'italic'}}>
@@ -640,27 +653,29 @@ export default [
             const urinapain = result.slice(0, 6).reduce((res, i) => [ ...res, ...i ]).reduce((res, i) => res + i, 0);
 
             const sum = pain + urination + life;
-            return [ <div>
-                <table style={{ borderCollapse: 'collapse', width: '100%' }}>
-                    <tr>
-                        <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Боль</td>
-                        <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{pain}</td>
-                    </tr>
-                    <tr>
-                        <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Симптомы связанные с<br />мочеиспусканием</td>
-                        <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{urination}</td>
-                    </tr>
-                    <tr>
-                        <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Влияние на качество жизни
-                        </td><td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{life}</td>
-                    </tr>
-                    <tr>
-                        <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Боль и мочеиспускание</td>
-                        <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{urinapain}</td>
-                    </tr>
-                </table>
-                <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b> - {test(sum)}</p>
-            </div>, sum]
+            return [
+                <div>
+                    <div style={{ marginBottom: '16px', padding: '10px 30px', fontSize: '22px', textAlign: 'center', color: '#95a3b4' }}>Результат</div>
+                    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Боль</td>
+                            <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{pain}</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Симптомы связанные с<br />мочеиспусканием</td>
+                            <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{urination}</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Влияние на качество жизни
+                            </td><td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{life}</td>
+                        </tr>
+                        <tr>
+                            <td style={{ textAlign: 'left', fontWeight: 'bold', borderBottom: '1px solid #e7eaf3' }}>Боль и мочеиспускание</td>
+                            <td style={{ textAlign: 'center', color: '#5d616f', borderBottom: '1px solid #e7eaf3' }}>{urinapain}</td>
+                        </tr>
+                    </table>
+                    <p style={{ color: '#5d616f' }}>Всего <b>{sum}</b> - {test(sum)}</p>
+                </div>, sum]
         },
         description: (
             <div style={{fontStyle: 'italic'}}>
